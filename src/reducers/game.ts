@@ -11,13 +11,13 @@ export interface Game {
   gamePaused: boolean
 }
 
-const initialState = {
+export const initialState = {
   gameStarted: false,
   handStarted: false,
   gamePaused: false
 }
 
-export const gameReducer = (state: Game = initialState, action:Action) => {
+const gameReducer = (state: Game = initialState, action:Action) => {
   switch(action.type) {
     case SET_GAME_STARTED:
       return {...state, 
@@ -27,3 +27,4 @@ export const gameReducer = (state: Game = initialState, action:Action) => {
   }
 }
 
+export default gameReducer;

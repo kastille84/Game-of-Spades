@@ -4,15 +4,18 @@ import Welcome from './containers/welcome';
 
 import './App.css';
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" component={Welcome} />
+class App extends React.Component{
+  render() {
 
-      </Switch>
-    </Router>
-  );
+    return (
+      <Router>
+        <Switch>
+          <Route path="/" component={Welcome} />
+  
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

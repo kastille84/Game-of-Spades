@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {StoreState} from '../../reducers';
 import {setGameStarted} from '../../actions';
+import './index.scss';
 
 interface WelcomeProps {
   gameStarted: boolean,
