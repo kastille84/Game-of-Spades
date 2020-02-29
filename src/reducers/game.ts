@@ -7,7 +7,7 @@ import {
 
 export interface Game {
   gameStarted: boolean,
-  handStarted: boolean,
+  handStarted: boolean|null,
   gamePaused: boolean
 }
 

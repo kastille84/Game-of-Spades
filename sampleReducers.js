@@ -33,7 +33,8 @@
       id: 23,
       suit: 'diamonds',
       type: '7',
-      value: 7
+      value: 7,
+      img: "spades-7"
     }
   ],
   currentHand: {
@@ -42,13 +43,14 @@
       {
         suit: 'diamonds',
         type: '7',
-        value: 7
+        value: 7,
+        img: "diamond-7"
       }
     ],
     cutSpades: false,
     blindNil: false
   },
-  currentDealer: 3
+  currentDealer: 3 //or null if we are seeing who deals first to start the game
 }
 
 //Score

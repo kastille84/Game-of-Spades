@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {findByTestAttr, storeFactory} from '../../utils/testUtils';
-import Welcome from './';
+import Welcome from '.';
 import {initialState} from '../../reducers/game';
 
 const initState = {game: initialState};
