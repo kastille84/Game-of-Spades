@@ -4,30 +4,50 @@ import {connect} from 'react-redux';
 
 import {StoreState} from '../../reducers';
 import {Game} from '../../reducers/game';
+import {Cards} from '../../reducers/cards';
 
 import ComPlayer from '../../components/ComPlayer';
 import RealPlayer from '../../components/RealPlayer';
 import Hand from '../../components/Hand';
+import {
+  setDistributeCards,
+  setDealer
+} from '../../actions/index'
+
+import {
+  distributeCards,
+  findTheDealer
+} from '../../utils/functions';
 
 import './index.scss'
+
 interface GameboardProps extends RouteComponentProps  {
-  game:Game
+  game:Game,
+  cards: Cards,
+  setDistributeCards: typeof setDistributeCards,
+  setDealer: typeof setDealer
 }
 const mapStateToProps = (state:StoreState) => ({
-  game: state.game
+  game: state.game,
+  cards: state.cards
 })
 
 class Gameboard extends Component<GameboardProps> {
   
-  // determineIfHandStarted = ():JSX.Element => {
-  //   const {handStarted} = this.props.game;
-  //   // if(!handStarted) {
-      
-  //   // } else {
+  componentDidMount() {
+    //1. if dealer is null, then find the dealer
+    const dealer = findTheDealer(this.props.cards.allCards);
+    this.props.setDealer(dealer);
 
-  //   // }
-  //   return <div>hey</div>
-  // }
+    //2. distrubute the cards to each player
+    this.props.setDistributeCards(distributeCards(this.props.cards.allCards));
+  }
+
+  componentDidUpdate() {
+   
+   
+
+  }
 
   render() {
     return (
@@ -61,6 +81,7 @@ class Gameboard extends Component<GameboardProps> {
         <div className="gameboard-bottom">
           <RealPlayer 
             playerId={1}
+            orientation="upright"
           />
         </div>
       </div>
@@ -69,4 +90,7 @@ class Gameboard extends Component<GameboardProps> {
 }
 
 
-export default connect(mapStateToProps)(Gameboard);
+export default connect(mapStateToProps, {
+  setDistributeCards,
+  setDealer
+})(Gameboard);

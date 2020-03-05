@@ -38,7 +38,14 @@
     }
   ],
   currentHand: {
-    currentTurn: 2,
+    dealer: 3 //or null if we are seeing who deals first to start the game
+    cardsDistrubuted: false
+    biddingStarted: false,
+    playingStarted: false,
+    turn_info: {
+      turn: 2, //default is 1
+      playerId: 2 //default set to current d ealer
+    },
     cardsInPlay:[
       {
         suit: 'diamonds',
@@ -49,8 +56,7 @@
     ],
     cutSpades: false,
     blindNil: false
-  },
-  currentDealer: 3 //or null if we are seeing who deals first to start the game
+  }
 }
 
 //Score
